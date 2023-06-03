@@ -16,7 +16,7 @@ intervalo_de_confianza_t <- function(datos, alpha = 0.05) {
   return(c(mu_bar - error, mu_bar + error))
 }
 
-intervalo_de_confianza_p <- function(datos, category, alpha = 0.05) {
+intervalo_de_confianza_proporcion <- function(datos, category, alpha = 0.05) {
   n <- length(datos)
   p_bar <- sum(datos == category) / n
   z <- qnorm(alpha / 2, lower.tail = FALSE)
