@@ -23,3 +23,12 @@ intervalo_de_confianza_p <- function(datos, category, alpha = 0.05) {
   error <- z * sqrt(p_bar * (1 - p_bar) / n)
   return(c(p_bar - error, p_bar + error))
 }
+
+intervalo_de_confianza_var <- function(datos, alpha = 0.05) {
+  n <- length(datos)
+  s2 <- var(datos)
+  chi2_inferior <- qchisq(1 - alpha / 2, n - 1)
+  chi2_superior <- qchisq(alpha / 2, n - 1)
+  numerator <- s2 * (n - 1)
+  return(c(numerator / chi2_inferior, numerator / chi2_superior))
+}
