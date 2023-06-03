@@ -1,8 +1,8 @@
-setwd("../mahalanobis")
+setwd(".")
 
 library(readxl)
 
-medifis <- read_excel("../../datos/datos.xls", sheet = "Medifis", skip = 2)
+medifis <- read_excel("datos/datos.xls", sheet = "Medifis", skip = 2)
 
 # sacar mahalanobis con kendall y spearman
 # sacar cutoff chi cuadrado, 99, 97.5, 95, 90

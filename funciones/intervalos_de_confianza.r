@@ -1,4 +1,4 @@
-intervalo_de_confianza_z <- function(datos, alpha) {
+intervalo_de_confianza_z <- function(datos, alpha = 0.05) {
   x_bar <- mean(datos)
   s <- sd(datos)
   n <- length(datos)
@@ -7,7 +7,7 @@ intervalo_de_confianza_z <- function(datos, alpha) {
   return(c(x_bar - error, x_bar + error))
 }
 
-intervalo_de_confianza_t <- function(datos, alpha) {
+intervalo_de_confianza_t <- function(datos, alpha = 0.05) {
   mu_bar <- mean(datos)
   s <- sd(datos)
   n <- length(datos)
@@ -16,7 +16,7 @@ intervalo_de_confianza_t <- function(datos, alpha) {
   return(c(mu_bar - error, mu_bar + error))
 }
 
-intervalo_de_confianza_p <- function(datos, category, alpha) {
+intervalo_de_confianza_p <- function(datos, category, alpha = 0.05) {
   n <- length(datos)
   p_bar <- sum(datos == category) / n
   z <- qnorm(alpha / 2, lower.tail = FALSE)
