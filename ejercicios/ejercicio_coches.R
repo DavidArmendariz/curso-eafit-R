@@ -37,3 +37,12 @@ prop.test(
   conf.level = 0.95,
 )
 prueba_hipotesis_proporcion_datos(datos$`Ensamble 1 local=1,extranjero=0`, 1, 0.5, "greater", 0.05)
+
+primer_carro <- as.numeric(datos[1, ])
+distancias <- rep(0, nrow(datos) - 1)
+for (i in 2:nrow(datos)) {
+  diferencia <- as.numeric(datos[i, ]) - primer_carro
+  diferencia <- as.matrix(diferencia)
+  distancias[i - 1] <- norm(diferencia, type = "I")
+}
+distancia_min <- which.min(distancias)
