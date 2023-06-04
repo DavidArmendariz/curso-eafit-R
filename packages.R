@@ -1,0 +1,6 @@
+install.packages("languageserver")
+install.packages("lpSolve")
+install.packages("car")
+install.packages("readxl")
+install.packages("corrplot")
+install.packages("lmtest")
