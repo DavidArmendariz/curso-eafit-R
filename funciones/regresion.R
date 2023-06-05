@@ -10,3 +10,7 @@ regresion_lineal <- function(x, y, alpha = 0.05) {
     significant_coefs = significant_coefs
   ))
 }
+
+predecir_nuevo_valor <- function(model, x) {
+  return(predict(model, x))
+}
