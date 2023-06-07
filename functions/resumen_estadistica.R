@@ -1,7 +1,7 @@
 library("e1071")
 library("robustbase")
 
-resumen_estadistica <- function(datos) {
+statistics_summary <- function(datos) {
   resumen <- data.frame(
     media = mean(datos),
     mediana = median(datos),
@@ -14,6 +14,6 @@ resumen_estadistica <- function(datos) {
   return(resumen)
 }
 
-boxplot_ajustado <- function(datos) {
+get_adjusted_boxplot <- function(datos) {
   adjbox(datos, horizontal = TRUE)
 }

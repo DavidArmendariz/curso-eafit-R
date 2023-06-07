@@ -1,10 +1,10 @@
 setwd(".")
 library(lmtest)
 library(readxl)
-source("functions/regresion.R")
+source("functions/regression.R")
 source("functions/intervalos_de_confianza.R")
 
-data <- read_excel("datos/procesadores.xlsx")
+data <- read_excel("data/procesadores.xlsx")
 rendimiento_relativo <- data$`Rendimiento_Relativo`
 rendimiento_relativo_estimado <- data$`Rendimiento_relativo_estimado`
 x <- data

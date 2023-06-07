@@ -3,7 +3,7 @@ source("functions/intervalos_de_confianza.R")
 source("functions/hypotesis.R")
 library(readxl)
 
-datos <- read_excel("datos/coches.xlsx", skip = 1)
+datos <- read_excel("data/coches.xlsx", skip = 1)
 # str(datos) para ver el tipo de columnas
 datos$`Tiempo en segundos en alcanzar 100 kph` <- as.numeric(datos$`Tiempo en segundos en alcanzar 100 kph`)
 datos$`Consumo de gasolina en litros por cada 100Km` <- as.numeric(datos$`Consumo de gasolina en litros por cada 100Km`)
