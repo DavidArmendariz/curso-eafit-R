@@ -1,4 +1,4 @@
-intervalo_de_confianza_z <- function(datos, alpha = 0.05) {
+confidence_interval_mean_z <- function(datos, alpha = 0.05) {
   x_bar <- mean(datos)
   s <- sd(datos)
   n <- length(datos)
@@ -7,7 +7,7 @@ intervalo_de_confianza_z <- function(datos, alpha = 0.05) {
   return(c(x_bar - error, x_bar + error))
 }
 
-intervalo_de_confianza_t <- function(datos, alpha = 0.05) {
+confidence_interval_mean_t <- function(datos, alpha = 0.05) {
   mu_bar <- mean(datos)
   s <- sd(datos)
   n <- length(datos)
@@ -16,7 +16,7 @@ intervalo_de_confianza_t <- function(datos, alpha = 0.05) {
   return(c(mu_bar - error, mu_bar + error))
 }
 
-intervalo_de_confianza_proporcion <- function(datos, category, alpha = 0.05) {
+confidence_interval_proportion <- function(datos, category, alpha = 0.05) {
   n <- length(datos)
   p_bar <- sum(datos == category) / n
   z <- qnorm(alpha / 2, lower.tail = FALSE)
@@ -24,7 +24,7 @@ intervalo_de_confianza_proporcion <- function(datos, category, alpha = 0.05) {
   return(c(p_bar - error, p_bar + error))
 }
 
-intervalo_de_confianza_var <- function(datos, alpha = 0.05) {
+confidence_interval_variance <- function(datos, alpha = 0.05) {
   n <- length(datos)
   s2 <- var(datos)
   chi2_inferior <- qchisq(1 - alpha / 2, n - 1)

@@ -2,7 +2,7 @@ setwd(".")
 library(lmtest)
 library(readxl)
 source("functions/regression.R")
-source("functions/intervalos_de_confianza.R")
+source("functions/confidence_intervals.R")
 
 data <- read_excel("data/procesadores.xlsx")
 rendimiento_relativo <- data$`Rendimiento_Relativo`
@@ -17,7 +17,7 @@ regresion2 <- regresion_lineal(x, rendimiento_relativo_estimado)
 rendimiento_relativo_3 <- predecir_nuevo_valor(regresion1$model, x[3, ])
 error_rendimiento_relativo_3 <- regresion1$model$residuals[3]
 
-intervalo_de_confianza_t(rendimiento_relativo)
+confidence_interval_mean_t()(rendimiento_relativo)
 # H0: u >= a 100
 # H1: u < 100
 t.test(
