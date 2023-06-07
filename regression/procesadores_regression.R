@@ -11,10 +11,10 @@ x <- data
 x$`Rendimiento_Relativo` <- NULL
 x$`Rendimiento_relativo_estimado` <- NULL
 
-regresion1 <- regresion_lineal(x, rendimiento_relativo)
-regresion2 <- regresion_lineal(x, rendimiento_relativo_estimado)
+regresion1 <- linear_regression(x, rendimiento_relativo)
+regresion2 <- linear_regression(x, rendimiento_relativo_estimado)
 
-rendimiento_relativo_3 <- predecir_nuevo_valor(regresion1$model, x[3, ])
+rendimiento_relativo_3 <- predict_new_value(regresion1$model, x[3, ])
 error_rendimiento_relativo_3 <- regresion1$model$residuals[3]
 
 confidence_interval_mean_t()(rendimiento_relativo)

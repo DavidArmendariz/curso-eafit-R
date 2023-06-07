@@ -1,4 +1,4 @@
-regresion_lineal <- function(x, y, alpha = 0.05) {
+linear_regression <- function(x, y, alpha = 0.05) {
   model <- lm(y ~ ., data = x)
   summary_model <- summary(model)
   coefficients <- coef(summary_model)
@@ -11,6 +11,6 @@ regresion_lineal <- function(x, y, alpha = 0.05) {
   ))
 }
 
-predecir_nuevo_valor <- function(model, x) {
+predict_new_value <- function(model, x) {
   return(predict(model, x))
 }

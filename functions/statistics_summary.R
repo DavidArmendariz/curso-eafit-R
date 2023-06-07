@@ -1,5 +1,5 @@
-library("e1071")
-library("robustbase")
+library(e1071)
+library(robustbase)
 
 statistics_summary <- function(datos) {
   resumen <- data.frame(
