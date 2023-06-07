@@ -1,4 +1,4 @@
-prueba_hipotesis_proporcion_datos <- function(datos, category, p0, type, alpha = 0.05) {
+proportion_hypothesis <- function(datos, category, p0, type, alpha = 0.05) {
   n <- length(datos)
   p_bar <- sum(datos == category) / n
   z <- (p_bar - p0) / sqrt(p0 * (1 - p0) / n)
@@ -12,9 +12,9 @@ prueba_hipotesis_proporcion_datos <- function(datos, category, p0, type, alpha =
   }
 
   if (p_value < alpha) {
-    print("Se rechaza la hipótesis nula")
+    print("We reject the null hypothesis")
   } else {
-    print("No se rechaza la hipótesis nula")
+    print("We do not reject the null hypothesis")
   }
 
   return(c(z, p_value))

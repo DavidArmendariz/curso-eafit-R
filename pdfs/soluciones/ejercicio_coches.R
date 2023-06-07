@@ -1,6 +1,6 @@
 setwd(".")
 source("functions/intervalos_de_confianza.R")
-source("functions/hipotesis.R")
+source("functions/hypotesis.R")
 library(readxl)
 
 datos <- read_excel("datos/coches.xlsx", skip = 1)

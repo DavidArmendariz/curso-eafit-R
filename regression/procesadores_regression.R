@@ -4,10 +4,10 @@ library(readxl)
 source("functions/regresion.R")
 source("functions/intervalos_de_confianza.R")
 
-datos <- read_excel("datos/procesadores.xlsx")
-rendimiento_relativo <- datos$`Rendimiento_Relativo`
-rendimiento_relativo_estimado <- datos$`Rendimiento_relativo_estimado`
-x <- datos
+data <- read_excel("datos/procesadores.xlsx")
+rendimiento_relativo <- data$`Rendimiento_Relativo`
+rendimiento_relativo_estimado <- data$`Rendimiento_relativo_estimado`
+x <- data
 x$`Rendimiento_Relativo` <- NULL
 x$`Rendimiento_relativo_estimado` <- NULL
 
@@ -27,19 +27,19 @@ t.test(
   mu = 100,
 )
 
-media_columnas <- as.numeric(apply(datos, 2, mean))
-n <- nrow(datos)
+media_columnas <- as.numeric(apply(data, 2, mean))
+n <- nrow(data)
 distancias_norma1 <- rep(0, n)
 distancias_norma2 <- rep(0, n)
 distancias_norma_infinito <- rep(0, n)
-covarianza_datos <- cov(datos)
+covarianza_datos <- cov(data)
 
 for (i in 1:n) {
-  fila_i <- as.numeric(datos[i, ])
+  fila_i <- as.numeric(data[i, ])
   diferencia <- as.matrix(fila_i - media_columnas)
   distancias_norma1[i] <- norm(diferencia, type = "1")
   distancias_norma2[i] <- norm(diferencia, type = "2")
   distancias_norma_infinito[i] <- norm(diferencia, type = "I")
 }
 
-distancias_mahalanobis <- mahalanobis(datos, media_columnas, covarianza_datos)
+distancias_mahalanobis <- mahalanobis(data, media_columnas, covarianza_datos)
