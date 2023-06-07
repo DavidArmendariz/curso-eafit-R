@@ -28,7 +28,7 @@ restriction2 <- c(1, 0)
 restriction3 <- c(1, 0)
 restriction4 <- c(0, 1)
 restriction5 <- c(0, 1)
-coef_restrictions <- rbind(
+restrictions_matrix <- rbind(
   restriction1,
   restriction2,
   restriction3,
@@ -37,14 +37,11 @@ coef_restrictions <- rbind(
 )
 coef_right_side <- c(15, 10, 6, 12, 5)
 restriction_types <- c(">=", "<=", ">=", "<=", ">=")
-solution <- lp(
-  direction = opt,
-  objective.in = coef_obj,
-  const.mat = coef_restrictions,
-  const.dir = restriction_types,
-  const.rhs = coef_right_side
-)
 
-print("Variables")
-print(solution$solution)
-paste("Z =", solution$objval)
+linear_optimization(
+  "min",
+  coef_obj,
+  restrictions_matrix,
+  coef_right_side,
+  restriction_types
+)

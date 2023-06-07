@@ -1,8 +1,8 @@
 setwd(".")
 library(lmtest)
 library(readxl)
-source("funciones/regresion.R")
-source("funciones/intervalos_de_confianza.R")
+source("functions/regresion.R")
+source("functions/intervalos_de_confianza.R")
 
 datos <- read_excel("datos/procesadores.xlsx")
 rendimiento_relativo <- datos$`Rendimiento_Relativo`
