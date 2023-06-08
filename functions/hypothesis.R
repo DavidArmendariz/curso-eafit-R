@@ -19,3 +19,23 @@ proportion_hypothesis <- function(datos, category, p0, type, alpha = 0.05) {
 
   return(c(z, p_value))
 }
+
+proportion_hypothesis_with_calculated_p <- function(p, n, p0, type, alpha = 0.05) {
+  z <- (p - p0) / sqrt(p0 * (1 - p0) / n)
+
+  if (type == "two.sided") {
+    p_value <- 2 * pnorm(-abs(z))
+  } else if (type == "less") {
+    p_value <- pnorm(z)
+  } else if (type == "greater") {
+    p_value <- pnorm(-z)
+  }
+
+  if (p_value < alpha) {
+    print("We reject the null hypothesis")
+  } else {
+    print("We do not reject the null hypothesis")
+  }
+
+  return(c(z, p_value))
+}
