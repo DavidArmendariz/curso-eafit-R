@@ -1,4 +1,4 @@
-optimal_sample_for_mean <- function(error, alpha, mean, standard_deviation) {
+optimal_sample_for_mean <- function(error, alpha, standard_deviation) {
   z <- qnorm(alpha / 2, lower.tail = FALSE)
   return(ceiling((standard_deviation * z / error)^2))
 }

@@ -2,7 +2,7 @@ setwd(".")
 
 library(e1071)
 source("functions/confidence_intervals.R")
-source("functions/sample.R")
+source("functions/samples.R")
 
 data <- read.table("data/rentabilidades.txt")
 nrow <- nrow(data)
@@ -51,4 +51,21 @@ for (i in 1:ncol) {
     confidence_interval_proportion_with_calculated_p(proporciones[i], nrow, alpha = 0.05)
   confidence_interval_proportion_90[[i]] <-
     confidence_interval_proportion_with_calculated_p(proporciones[i], nrow, alpha = 0.1)
+}
+
+n_optimo_media_95 <- list()
+n_optimo_media_90 <- list()
+n_optimo_proporcion_95 <- list()
+n_optimo_proporcion_90 <- list()
+for (i in 1:ncol) {
+  column_data <- data[, i]
+  standard_deviation_column <- sd(column_data)
+
+  error_intervalo_media_95 <- (confidence_interval_mean_95[[i]][2] -
+    confidence_interval_mean_95[[i]][1]) / 4
+  n_optimo_media_95[[i]] <- optimal_sample_for_mean(error_intervalo_media_95, 0.05, standard_deviation_column)
+
+  error_intervalo_media_90 <- (confidence_interval_mean_90[[i]][2] -
+    confidence_interval_mean_90[[i]][1]) / 4
+  n_optimo_media_90[[i]] <- optimal_sample_for_mean(error_intervalo_media_90, 0.05, standard_deviation_column)
 }
