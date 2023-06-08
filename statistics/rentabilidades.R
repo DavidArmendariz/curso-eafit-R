@@ -84,3 +84,9 @@ results_hypothesis <- list()
 for (i in 1:ncol) {
   results_hypothesis[[i]] <- proportion_hypothesis_with_calculated_p(proporciones[i], nrow, 0.5, "greater", 0.05)
 }
+
+results_hypothesis_mean <- c()
+for (i in 1:ncol) {
+  result <- t.test(data[, i], mu = 1, alternative = "greater", conf.level = 0.95)
+  results_hypothesis_mean[i] <- result$p.value
+}
