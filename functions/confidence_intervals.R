@@ -1,9 +1,8 @@
-confidence_interval_mean_z <- function(data, alpha = 0.05) {
+confidence_interval_mean_z <- function(data, standard_deviation, alpha = 0.05) {
   x_bar <- mean(data)
-  s <- sd(data)
   n <- length(data)
   z <- qnorm(alpha / 2, lower.tail = FALSE)
-  error <- s * z / sqrt(n)
+  error <- standard_deviation * z / sqrt(n)
   return(c(x_bar - error, x_bar + error))
 }
 
